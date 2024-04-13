@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5a41281-9b2a-4cf7-bcc0-252814e6e262" name="Changes" comment="alteracoes no tim sort">
+    <list default="true" id="d5a41281-9b2a-4cf7-bcc0-252814e6e262" name="Changes" comment="inicio da implementacao do merge sort para o tim sort">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sortanimation/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sortanimation/Principal.java" afterDir="false" />
     </list>
@@ -88,7 +88,7 @@
       <workItem from="1712879127271" duration="1156000" />
       <workItem from="1712967777421" duration="14306000" />
       <workItem from="1712984568654" duration="227000" />
-      <workItem from="1713035041258" duration="1978000" />
+      <workItem from="1713035041258" duration="9092000" />
     </task>
     <task id="LOCAL-00001" summary="primero commit">
       <option name="closed" value="true" />
@@ -130,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712981274206</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="inicio da implementacao do merge sort para o tim sort">
+      <option name="closed" value="true" />
+      <created>1713037298336</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713037298337</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +149,7 @@
     <MESSAGE value="refatoracao do codigo + criacao de vetor com valores aleatorios nao repetidos" />
     <MESSAGE value="refatoracao e criacao da funcao de mover botoes em qualquer posicao + organizacao do codigo" />
     <MESSAGE value="inicio da funcao tim sort e modularizacao de algumas funcoes" />
-    <option name="LAST_COMMIT_MESSAGE" value="inicio da funcao tim sort e modularizacao de algumas funcoes" />
+    <MESSAGE value="inicio da implementacao do merge sort para o tim sort" />
+    <option name="LAST_COMMIT_MESSAGE" value="inicio da implementacao do merge sort para o tim sort" />
   </component>
 </project>

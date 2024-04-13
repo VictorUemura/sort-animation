@@ -19,10 +19,11 @@ public class Principal extends Application {
     // vetor que e exibido
     private Button vet[];
     private static int TAMVET = 16;
-    private static int TEMPO = 50;
+    private static int TEMPO = 15;
     private static int DISTANCIA = 45;
     private int vetInt[];
     private int TL;
+    private int vetPosButton[];
 
     public static void main(String[] args) {
         launch(args);
@@ -88,7 +89,9 @@ public class Principal extends Application {
     public void configura_exibicao_vetor() {
         int x = 100, y = 200, tamAltura = 40, tamComprimento = 40, numFonte = 14;
         vet = new Button[TAMVET];
+        vetPosButton = new int[TAMVET];
         for (int i = 0; i < TAMVET; i++) {
+            vetPosButton[i] = i;
             vet[i] = new Button(vetInt[i] + "");
             vet[i].setLayoutX(x);
             vet[i].setLayoutY(y);
@@ -183,12 +186,38 @@ public class Principal extends Application {
         }
     }
 
-    // posiciona o botao em uma posicao principal do vetor oficial
-    public void posiciona_botao(int posAtual, int posDirecao) {
-        int y = 200, x = 100;
-        while (vet[posAtual].getLayoutX() > x + DISTANCIA * posDirecao) {
-
+    public void renderiza_vetor() {
+        for (int i = 0; i < TAMVET; i++) {
+            int finalI = i;
+            Platform.runLater(() -> vet[finalI].setText(vetInt[finalI] + ""));
         }
+    }
+
+    // posiciona o botao em uma posicao principal do vetor oficial
+    public void posiciona_botao(int posVetor, int posDirecao) {
+        int y = 200, x = 100;
+        int posDirecaoX = x + DISTANCIA * posDirecao, posDirecaoY = y;
+        while(vet[posVetor].getLayoutY() > 200)
+            move_para_cima(posVetor, posVetor);
+        while(vet[posVetor].getLayoutY() < 200)
+            move_para_baixo(posVetor, posVetor);
+        while (vet[posVetor].getLayoutX() > posDirecaoX) {
+            move_para_esquerda(posVetor, posVetor);
+        }
+        while (vet[posVetor].getLayoutX() < posDirecaoX) {
+            move_para_direita(posVetor, posVetor);
+        }
+    }
+
+    public void reorganiza_botoes() {
+        Button aux[] = new Button[TAMVET];
+        for(int i = 0; i < TAMVET; i++)
+            aux[i] = vet[i];
+        for(int i = 0; i < TAMVET; i++) {
+            vet[i] = aux[vetPosButton[i]];
+        }
+        for(int i = 0; i < TAMVET; i++)
+            vetPosButton[i] = i;
     }
 
     // funcoes de ordenacao Tim Sort e Bucket Sort a seguir:
@@ -211,20 +240,28 @@ public class Principal extends Application {
                 move_para_baixo(i * n, i * n + n - 1);
         }
         for (int i = 0; i < TAMVET; i += n) {
-            insertionSort(i, Math.min(i + n - 1, TAMVET - 1));
-        }
-
-        for (int i = 0; i < TAMVET; i += n) {
-            mergeSort(i, Math.min(i + n - 1, TAMVET - 1), 0 ,0);
+            insertion_sort(i, Math.min(i + n - 1, TAMVET - 1));
         }
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j <= i; j++)
                 move_para_cima(i * n, i * n + n - 1);
         }
+
+        int espaco = n;
+        for (int i = n; i > 1; i /= 2) {
+            for(int j = 0; j < TAMVET; j += espaco * 2) {
+                merge_sort(j, j + espaco - 1, j + espaco * 2 - 1);
+                reorganiza_botoes();
+            }
+            espaco *= 2;
+        }
+        reorganiza_botoes();
+        //renderiza_vetor();
+
     }
 
-    public void insertionSort(int inicio, int fim) {
+    public void insertion_sort(int inicio, int fim) {
         int j, temp;
         for (int i = inicio + 1; i <= fim; i++) {
             j = i - 1;
@@ -238,7 +275,55 @@ public class Principal extends Application {
         }
     }
 
-    public void mergeSort(int inicio1, int fim1, int fim2, int fim3) {
+    public void merge_sort(int inicio, int meio, int fim) {
+        int tam1 = meio - inicio + 1, tam2 = fim - meio;
+        int[] vet1 = new int[tam1];
+        int[] vet2 = new int[tam2];
 
+        int moveInicio = inicio, moveFim = meio;
+        for(int i = 0; i < 2; i++) {
+            for(int j = 0; j <= i; j++)
+                move_para_baixo(moveInicio, moveFim);
+            moveInicio = moveFim + 1;
+            moveFim += meio - inicio + 1;
+        }
+
+        for (int x = 0; x < tam1; x++)
+            vet1[x] = vetInt[inicio + x];
+
+        for (int x = 0; x < tam2; x++)
+            vet2[x] = vetInt[meio + 1 + x];
+
+        int i = 0;
+        int j = 0;
+        int k = inicio;
+        while (i < tam1 && j < tam2) {
+            if (vet1[i] <= vet2[j]) {
+                vetInt[k] = vet1[i];
+                posiciona_botao(i + inicio, k);
+                vetPosButton[k] = i + inicio;
+                i++;
+            } else {
+                vetInt[k] = vet2[j];
+                posiciona_botao(j + meio + 1, k);
+                vetPosButton[k] = j + meio + 1;
+                j++;
+            }
+            k++;
+        }
+        while (i < tam1) {
+            vetInt[k] = vet1[i];
+            posiciona_botao(i + inicio, k);
+            vetPosButton[k] = i + inicio;
+            k++;
+            i++;
+        }
+        while (j < tam2) {
+            vetInt[k] = vet2[j];
+            posiciona_botao(j + meio + 1, k);
+            vetPosButton[k] = j + meio;
+            k++;
+            j++;
+        }
     }
 }

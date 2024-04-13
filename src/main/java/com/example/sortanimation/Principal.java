@@ -19,7 +19,7 @@ public class Principal extends Application {
     // vetor que e exibido
     private Button vet[];
     private static int TAMVET = 16;
-    private static int TEMPO = 10;
+    private static int TEMPO = 50;
     private static int DISTANCIA = 45;
     private int vetInt[];
     private int TL;
@@ -214,7 +214,9 @@ public class Principal extends Application {
             insertionSort(i, Math.min(i + n - 1, TAMVET - 1));
         }
 
-
+        for (int i = 0; i < TAMVET; i += n) {
+            mergeSort(i, Math.min(i + n - 1, TAMVET - 1), 0 ,0);
+        }
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j <= i; j++)
@@ -236,5 +238,7 @@ public class Principal extends Application {
         }
     }
 
+    public void mergeSort(int inicio1, int fim1, int fim2, int fim3) {
 
+    }
 }

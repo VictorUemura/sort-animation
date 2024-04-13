@@ -19,6 +19,8 @@ public class Principal extends Application {
     // vetor que e exibido
     private Button vet[];
     private static int TAMVET = 16;
+    private static int TEMPO = 10;
+    private static int DISTANCIA = 45;
     private int vetInt[];
     private int TL;
 
@@ -84,7 +86,7 @@ public class Principal extends Application {
     }
 
     public void configura_exibicao_vetor() {
-        int x = 100, y = 200, tamAltura = 40, tamComprimento = 40, numFonte = 14, distancia = 45;
+        int x = 100, y = 200, tamAltura = 40, tamComprimento = 40, numFonte = 14;
         vet = new Button[TAMVET];
         for (int i = 0; i < TAMVET; i++) {
             vet[i] = new Button(vetInt[i] + "");
@@ -95,54 +97,43 @@ public class Principal extends Application {
             vet[i].setFont(new Font(numFonte));
             add_pane(vet[i]);
 
-            x += distancia;
+            x += DISTANCIA;
         }
     }
 
     // configuracoes e funcoes da animacao a seguir:
+    public void intervalo() {
+        try {
+            Thread.sleep(TEMPO);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
     public void troca_botoes(int pos1, int pos2) {
         double posInicial1 = vet[pos1].getLayoutX(), posInicial2 = vet[pos2].getLayoutX();
         int distPerc = Math.abs((int) (posInicial2 - posInicial1) / 5);
-        System.out.println(distPerc);
-
         for (int i = 0; i < 10; i++) {
             Platform.runLater(() -> vet[pos1].setLayoutY(vet[pos1].getLayoutY() + 5));
             Platform.runLater(() -> vet[pos2].setLayoutY(vet[pos2].getLayoutY() - 5));
-            try {
-                Thread.sleep(50);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            intervalo();
         }
         if (pos1 < pos2) {
             for (int i = 0; i < distPerc; i++) {
                 Platform.runLater(() -> vet[pos1].setLayoutX(vet[pos1].getLayoutX() + 5));
                 Platform.runLater(() -> vet[pos2].setLayoutX(vet[pos2].getLayoutX() - 5));
-                try {
-                    Thread.sleep(50);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                intervalo();
             }
         } else {
             for (int i = 0; i < distPerc; i++) {
                 Platform.runLater(() -> vet[pos1].setLayoutX(vet[pos1].getLayoutX() - 5));
                 Platform.runLater(() -> vet[pos2].setLayoutX(vet[pos2].getLayoutX() + 5));
-                try {
-                    Thread.sleep(50);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                intervalo();
             }
         }
         for (int i = 0; i < 10; i++) {
             Platform.runLater(() -> vet[pos1].setLayoutY(vet[pos1].getLayoutY() - 5));
             Platform.runLater(() -> vet[pos2].setLayoutY(vet[pos2].getLayoutY() + 5));
-            try {
-                Thread.sleep(50);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            intervalo();
         }
 
         Button aux = vet[pos1];
@@ -150,18 +141,101 @@ public class Principal extends Application {
         vet[pos2] = aux;
     }
 
+    // move botoes do array para cima/baixo/esquerda/direta de acordo com o intervalo determinado
+    public void move_para_cima(int inicio, int fim) {
+        for (int j = 0; j < 10; j++) {
+            for (int i = inicio; i <= fim; i++) {
+                int finalI = i;
+                Platform.runLater(() -> vet[finalI].setLayoutY(vet[finalI].getLayoutY() - 5));
+            }
+            intervalo();
+        }
+    }
+
+    public void move_para_baixo(int inicio, int fim) {
+        for (int j = 0; j < 10; j++) {
+            for (int i = inicio; i <= fim; i++) {
+                int finalI = i;
+                Platform.runLater(() -> vet[finalI].setLayoutY(vet[finalI].getLayoutY() + 5));
+            }
+            intervalo();
+        }
+    }
+
+    public void move_para_esquerda(int inicio, int fim) {
+        for (int j = 0; j < 9; j++) {
+            for (int i = inicio; i <= fim; i++) {
+                int finalI = i;
+                Platform.runLater(() -> vet[finalI].setLayoutX(vet[finalI].getLayoutX() - 5));
+            }
+            intervalo();
+        }
+    }
+
+    public void move_para_direita(int inicio, int fim) {
+        for (int j = 0; j < 9; j++) {
+            for (int i = inicio; i <= fim; i++) {
+                int finalI = i;
+                Platform.runLater(() -> vet[finalI].setLayoutX(vet[finalI].getLayoutX() + 5));
+            }
+            intervalo();
+        }
+    }
+
+    // posiciona o botao em uma posicao principal do vetor oficial
+    public void posiciona_botao(int posAtual, int posDirecao) {
+        int y = 200, x = 100;
+        while (vet[posAtual].getLayoutX() > x + DISTANCIA * posDirecao) {
+
+        }
+    }
+
     // funcoes de ordenacao Tim Sort e Bucket Sort a seguir:
     public void move_botoes() {
         Task<Void> task = new Task<Void>() {
             @Override
             protected Void call() {
-                int pos1 = 0, pos2 = 10;
-                troca_botoes(pos1, pos2);
-
+                timSort(4);
                 return null;
             }
         };
         Thread thread = new Thread(task);
         thread.start();
     }
+
+    public void timSort(int runs) {
+        int n = TAMVET / runs;
+        while (n > 1) {
+
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j <= i; j++)
+                    move_para_baixo(i * n, i * n + n - 1);
+            }
+            for (int i = 0; i * n < n; i++) {
+                insertionSort(i * n, i * n + n - 1);
+            }
+
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j <= i; j++)
+                    move_para_cima(i * n, i * n + n - 1);
+            }
+            n *= 2;
+        }
+    }
+
+    public void insertionSort(int inicio, int fim) {
+        int j, temp;
+        for (int i = inicio + 1; i <= fim; i++) {
+            j = i - 1;
+            while (j >= inicio && vetInt[j] > vetInt[j + 1]) {
+                temp = vetInt[j + 1];
+                vetInt[j + 1] = vetInt[j];
+                vetInt[j] = temp;
+                troca_botoes(j, j + 1);
+                j--;
+            }
+        }
+    }
+
+
 }

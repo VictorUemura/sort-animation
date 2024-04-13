@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5a41281-9b2a-4cf7-bcc0-252814e6e262" name="Changes" comment="alteracoes no merge sort + animacao">
+    <list default="true" id="d5a41281-9b2a-4cf7-bcc0-252814e6e262" name="Changes" comment="finalizado o tim sort e inicio do bucket sort">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sortanimation/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sortanimation/Principal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +89,7 @@
       <workItem from="1712879127271" duration="1156000" />
       <workItem from="1712967777421" duration="14306000" />
       <workItem from="1712984568654" duration="227000" />
-      <workItem from="1713035041258" duration="11032000" />
+      <workItem from="1713035041258" duration="11130000" />
     </task>
     <task id="LOCAL-00001" summary="primero commit">
       <option name="closed" value="true" />
@@ -146,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713046275937</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="finalizado o tim sort e inicio do bucket sort">
+      <option name="closed" value="true" />
+      <created>1713048332950</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713048332950</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +168,7 @@
     <MESSAGE value="inicio da funcao tim sort e modularizacao de algumas funcoes" />
     <MESSAGE value="inicio da implementacao do merge sort para o tim sort" />
     <MESSAGE value="alteracoes no merge sort + animacao" />
-    <option name="LAST_COMMIT_MESSAGE" value="alteracoes no merge sort + animacao" />
+    <MESSAGE value="finalizado o tim sort e inicio do bucket sort" />
+    <option name="LAST_COMMIT_MESSAGE" value="finalizado o tim sort e inicio do bucket sort" />
   </component>
 </project>

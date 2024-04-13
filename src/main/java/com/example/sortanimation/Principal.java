@@ -326,4 +326,8 @@ public class Principal extends Application {
             j++;
         }
     }
+
+    public void bucketSort() {
+
+    }
 }

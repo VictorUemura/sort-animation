@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5a41281-9b2a-4cf7-bcc0-252814e6e262" name="Changes" comment="inicio da implementacao do merge sort para o tim sort">
+    <list default="true" id="d5a41281-9b2a-4cf7-bcc0-252814e6e262" name="Changes" comment="alteracoes no merge sort + animacao">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sortanimation/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sortanimation/Principal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,26 +38,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Execute.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Principal.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Execute.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "Application.Principal.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/victo/OneDrive/Estudos/faculdade/5-termo/po/trab-ord-po-1-bimestre",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Execute" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.sortanimation.Principal" />
@@ -88,7 +88,7 @@
       <workItem from="1712879127271" duration="1156000" />
       <workItem from="1712967777421" duration="14306000" />
       <workItem from="1712984568654" duration="227000" />
-      <workItem from="1713035041258" duration="9092000" />
+      <workItem from="1713035041258" duration="11032000" />
     </task>
     <task id="LOCAL-00001" summary="primero commit">
       <option name="closed" value="true" />
@@ -138,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713037298337</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="alteracoes no merge sort + animacao">
+      <option name="closed" value="true" />
+      <created>1713046275937</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713046275937</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +158,7 @@
     <MESSAGE value="refatoracao e criacao da funcao de mover botoes em qualquer posicao + organizacao do codigo" />
     <MESSAGE value="inicio da funcao tim sort e modularizacao de algumas funcoes" />
     <MESSAGE value="inicio da implementacao do merge sort para o tim sort" />
-    <option name="LAST_COMMIT_MESSAGE" value="inicio da implementacao do merge sort para o tim sort" />
+    <MESSAGE value="alteracoes no merge sort + animacao" />
+    <option name="LAST_COMMIT_MESSAGE" value="alteracoes no merge sort + animacao" />
   </component>
 </project>

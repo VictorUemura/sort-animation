@@ -150,6 +150,7 @@ public class Principal extends Application {
         vet[pos2] = aux;
     }
 
+    // funcoes de ordenacao Tim Sort e Bucket Sort a seguir:
     public void move_botoes() {
         Task<Void> task = new Task<Void>() {
             @Override

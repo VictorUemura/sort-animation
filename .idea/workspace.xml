@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5a41281-9b2a-4cf7-bcc0-252814e6e262" name="Changes" comment="refatoracao e criacao da funcao de mover botoes em qualquer posicao + organizacao do codigo">
+    <list default="true" id="d5a41281-9b2a-4cf7-bcc0-252814e6e262" name="Changes" comment="inicio da funcao tim sort e modularizacao de algumas funcoes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sortanimation/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sortanimation/Principal.java" afterDir="false" />
     </list>
@@ -86,7 +86,7 @@
       <workItem from="1712873387543" duration="249000" />
       <workItem from="1712873677252" duration="2787000" />
       <workItem from="1712879127271" duration="1156000" />
-      <workItem from="1712967777421" duration="12386000" />
+      <workItem from="1712967777421" duration="14306000" />
     </task>
     <task id="LOCAL-00001" summary="primero commit">
       <option name="closed" value="true" />
@@ -120,7 +120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712972684157</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="inicio da funcao tim sort e modularizacao de algumas funcoes">
+      <option name="closed" value="true" />
+      <created>1712981274206</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712981274206</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +138,7 @@
     <MESSAGE value="primero commit" />
     <MESSAGE value="refatoracao do codigo + criacao de vetor com valores aleatorios nao repetidos" />
     <MESSAGE value="refatoracao e criacao da funcao de mover botoes em qualquer posicao + organizacao do codigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="refatoracao e criacao da funcao de mover botoes em qualquer posicao + organizacao do codigo" />
+    <MESSAGE value="inicio da funcao tim sort e modularizacao de algumas funcoes" />
+    <option name="LAST_COMMIT_MESSAGE" value="inicio da funcao tim sort e modularizacao de algumas funcoes" />
   </component>
 </project>

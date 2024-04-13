@@ -109,6 +109,7 @@ public class Principal extends Application {
             e.printStackTrace();
         }
     }
+
     public void troca_botoes(int pos1, int pos2) {
         double posInicial1 = vet[pos1].getLayoutX(), posInicial2 = vet[pos2].getLayoutX();
         int distPerc = Math.abs((int) (posInicial2 - posInicial1) / 5);
@@ -205,21 +206,19 @@ public class Principal extends Application {
 
     public void timSort(int runs) {
         int n = TAMVET / runs;
-        while (n > 1) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= i; j++)
+                move_para_baixo(i * n, i * n + n - 1);
+        }
+        for (int i = 0; i < TAMVET; i += n) {
+            insertionSort(i, Math.min(i + n - 1, TAMVET - 1));
+        }
 
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j <= i; j++)
-                    move_para_baixo(i * n, i * n + n - 1);
-            }
-            for (int i = 0; i * n < n; i++) {
-                insertionSort(i * n, i * n + n - 1);
-            }
 
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j <= i; j++)
-                    move_para_cima(i * n, i * n + n - 1);
-            }
-            n *= 2;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= i; j++)
+                move_para_cima(i * n, i * n + n - 1);
         }
     }
 

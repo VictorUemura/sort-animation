@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.text.Font;
@@ -15,7 +16,9 @@ public class Principal extends Application {
     // tela inicial que e apresentada
     AnchorPane pane;
     // botao que inicia o metodo para iniciar a ordenacao dos elementos
+    ComboBox<String> comboBox;
     Button botao_inicio;
+    Button botao_gerar_vetor;
     // vetor que e exibido
     private Button vet[];
     private static int TAMVET = 16;
@@ -36,13 +39,35 @@ public class Principal extends Application {
         geraVetor();
         configura_exibicao_vetor();
         stage.setTitle("Bucket Sort e Tim Sort");
+        configura_selecao_ordenacao();
+        configura_botao_gerar_vetor();
+        add_pane(botao_gerar_vetor);
+        pane.getChildren().add(comboBox);
         Scene scene = new Scene(pane, 1000, 600);
         stage.setScene(scene);
         stage.show();
-        //bucketSort();
     }
 
     // configuracoes de botoes e funcoes para insercao de elementos na tela a seguir:
+    public void configura_botao_gerar_vetor() {
+        botao_gerar_vetor = new Button();
+        botao_gerar_vetor.setLayoutX(10);
+        botao_gerar_vetor.setLayoutY(70);
+        botao_gerar_vetor.setText("Gerar novo vetor");
+        botao_gerar_vetor.setOnAction(e -> {
+            geraVetor();
+            renderiza_vetor();
+        });
+    }
+
+    public void configura_selecao_ordenacao() {
+        comboBox = new ComboBox<>();
+        comboBox.setLayoutX(10);
+        comboBox.setLayoutY(150);
+        comboBox.getItems().addAll("Bucket Sort", "Tim Sort");
+        comboBox.setValue("Bucket Sort");
+    }
+
     public void configura_botao_inicio() {
         botao_inicio = new Button();
         botao_inicio.setLayoutX(10);
@@ -198,8 +223,9 @@ public class Principal extends Application {
         int y = 200, x = 100;
         int posDirecaoX = x + DISTANCIA * posDirecao, posDirecaoY = y;
         if (vet[posVetor].getLayoutY() > 200)
-            while (vet[posVetor].getLayoutY() > 200)
+            while (vet[posVetor].getLayoutY() > 200) {
                 move_para_cima(posVetor, posVetor);
+            }
         else
             while (vet[posVetor].getLayoutY() < 200)
                 move_para_baixo(posVetor, posVetor);
@@ -226,10 +252,15 @@ public class Principal extends Application {
 
     // funcoes de ordenacao Tim Sort e Bucket Sort a seguir:
     public void move_botoes() {
+        String escolha = comboBox.getValue();
         Task<Void> task = new Task<Void>() {
             @Override
             protected Void call() {
-                timSort(4);
+                if (escolha.equals("Bucket Sort")) {
+                    bucketSort();
+                } else if (escolha.equals("Tim Sort")) {
+                    timSort(4);
+                }
                 return null;
             }
         };
@@ -355,6 +386,7 @@ public class Principal extends Application {
         for (int i = 0; i < numBuckets; i++)
             for (int j = 0; j < tlBaldes[i]; j++)
                 vetInt[controleVet++] = baldes[i][j];
+        renderiza_vetor();
     }
 
     public void exibe_vetor() {
@@ -363,7 +395,7 @@ public class Principal extends Application {
     }
 
     public static void exibe_vetor(int array[], int TL) {
-        for(int i = 0; i < TL; i++)
+        for (int i = 0; i < TL; i++)
             System.out.println(array[i]);
     }
 

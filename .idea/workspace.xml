@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5a41281-9b2a-4cf7-bcc0-252814e6e262" name="Changes" comment="corrigido a animacao do tim sort">
+    <list default="true" id="d5a41281-9b2a-4cf7-bcc0-252814e6e262" name="Changes" comment="criacao de botoes">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sortanimation/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sortanimation/Principal.java" afterDir="false" />
     </list>
@@ -48,7 +49,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/victo/OneDrive/Estudos/faculdade/5-termo/po/sort-animation&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/victo/OneDrive/Estudos/faculdade/5-termo/po/sort-methods&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -62,7 +63,9 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="Execute" type="Application" factoryName="Application">
+    <configuration name="Execute" type="Application" factoryName="Application" activateToolWindowBeforeRun="false">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.example.sortanimation.Principal" />
       <module name="sort-animation" />
       <method v="2">
@@ -92,7 +95,15 @@
       <workItem from="1712984568654" duration="227000" />
       <workItem from="1713035041258" duration="11261000" />
       <workItem from="1713143180242" duration="5563000" />
-      <workItem from="1713149214856" duration="2397000" />
+      <workItem from="1713149214856" duration="2611000" />
+      <workItem from="1713176355289" duration="5133000" />
+      <workItem from="1713181859337" duration="3192000" />
+      <workItem from="1713192910455" duration="420000" />
+      <workItem from="1713200044081" duration="702000" />
+      <workItem from="1713207559677" duration="1777000" />
+      <workItem from="1713552482062" duration="24000" />
+      <workItem from="1713552703421" duration="106000" />
+      <workItem from="1713552840646" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="primero commit">
       <option name="closed" value="true" />
@@ -174,13 +185,24 @@
       <option name="project" value="LOCAL" />
       <updated>1713149783039</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="criacao de botoes">
+      <option name="closed" value="true" />
+      <created>1713151819430</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713151819430</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
     <MESSAGE value="primero commit" />
     <MESSAGE value="refatoracao do codigo + criacao de vetor com valores aleatorios nao repetidos" />
     <MESSAGE value="refatoracao e criacao da funcao de mover botoes em qualquer posicao + organizacao do codigo" />
@@ -189,6 +211,10 @@
     <MESSAGE value="alteracoes no merge sort + animacao" />
     <MESSAGE value="finalizado o tim sort e inicio do bucket sort" />
     <MESSAGE value="corrigido a animacao do tim sort" />
-    <option name="LAST_COMMIT_MESSAGE" value="corrigido a animacao do tim sort" />
+    <MESSAGE value="criacao de botoes" />
+    <option name="LAST_COMMIT_MESSAGE" value="criacao de botoes" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/sort_animation$Execute.ic" NAME="Execute Coverage Results" MODIFIED="1713181616690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

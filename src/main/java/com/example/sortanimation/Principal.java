@@ -22,7 +22,7 @@ public class Principal extends Application {
     // vetor que e exibido
     private Button vet[];
     private static int TAMVET = 16;
-    private static int TEMPO = 15;
+    private static int TEMPO = 20;
     private static int DISTANCIA = 45;
     private int vetInt[];
     private int TL;
@@ -239,6 +239,19 @@ public class Principal extends Application {
             }
     }
 
+    public void posiciona_botao_x(int posVetor, int posDirecao) {
+        int x = 100;
+        int posDirecaoX = x + DISTANCIA * posDirecao;
+        if (vet[posVetor].getLayoutX() > posDirecaoX)
+            while (vet[posVetor].getLayoutX() > posDirecaoX) {
+                move_para_esquerda(posVetor, posVetor);
+            }
+        else
+            while (vet[posVetor].getLayoutX() < posDirecaoX) {
+                move_para_direita(posVetor, posVetor);
+            }
+    }
+
     public void reorganiza_botoes() {
         Button aux[] = new Button[TAMVET];
         for (int i = 0; i < TAMVET; i++)
@@ -362,7 +375,8 @@ public class Principal extends Application {
     }
 
     public void bucketSort() {
-        int numBuckets = new Random().nextInt(2, TAMVET);
+        int numBuckets;
+        numBuckets = new Random().nextInt(2, 7);
 
         // Cria os baldes
         int baldes[][];
@@ -371,21 +385,45 @@ public class Principal extends Application {
         for (int i = 0; i < numBuckets; i++)
             tlBaldes[i] = 0;
 
+        int baldesPos[][];
+        baldesPos = new int[numBuckets][TAMVET];
+
+        int baldesX[] = new int[numBuckets];
+        for (int i = 0; i < baldesX.length; i++)
+            baldesX[i] = 100;
+
         // Distribui os elementos nos baldes
         for (int i = 0; i < TAMVET; i++) {
             int indexBalde = (int) ((vetInt[i] / 100.0) * numBuckets);
-            baldes[indexBalde][tlBaldes[indexBalde]++] = vetInt[i];
+            baldes[indexBalde][tlBaldes[indexBalde]] = vetInt[i];
+            baldesPos[indexBalde][tlBaldes[indexBalde]] = i;
+            for (int j = 0; j <= indexBalde; j++)
+                move_para_baixo(i, i);
+            posiciona_botao_x(i, tlBaldes[indexBalde]++);
         }
 
         // Ordena baldes
         for (int i = 0; i < numBuckets; i++)
-            insertionSort(baldes[i], tlBaldes[i]);
+            insertionSort(baldes[i], tlBaldes[i], baldesPos[i]);
+
+        int count = 0;
+        for (int i = 0; i < numBuckets; i++) {
+            for (int j = 0; j < tlBaldes[i]; j++) {
+                System.out.println(i);
+                posiciona_botao(baldesPos[i][j], count);
+                vetPosButton[count] = baldesPos[i][j];
+                System.out.println(count);
+                count++;
+            }
+        }
 
         // insere baldes no vetor
         int controleVet = 0;
         for (int i = 0; i < numBuckets; i++)
-            for (int j = 0; j < tlBaldes[i]; j++)
+            for (int j = 0; j < tlBaldes[i]; j++) {
                 vetInt[controleVet++] = baldes[i][j];
+            }
+        reorganiza_botoes();
         renderiza_vetor();
     }
 
@@ -399,15 +437,23 @@ public class Principal extends Application {
             System.out.println(array[i]);
     }
 
-    public static void insertionSort(int[] array, int TL) {
+    public void insertionSort(int[] array, int TL, int baldePos[]) {
         for (int i = 1; i < TL; ++i) {
-            int key = array[i];
             int j = i - 1;
-            while (j >= 0 && array[j] > key) {
+            while (j >= 0 && array[j] > array[j + 1]) {
+                int temp = array[j + 1];
                 array[j + 1] = array[j];
-                j = j - 1;
+                array[j] = temp;
+
+                move_para_direita(baldePos[j], baldePos[j]);
+                move_para_esquerda(baldePos[j + 1], baldePos[j + 1]);
+
+                temp = baldePos[j + 1];
+                baldePos[j + 1] = baldePos[j];
+                baldePos[j] = temp;
+
+                j--;
             }
-            array[j + 1] = key;
         }
     }
 }
